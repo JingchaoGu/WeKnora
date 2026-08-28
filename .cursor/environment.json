@@ -1,0 +1,17 @@
+{
+  "name": "WeKnora Lite",
+  "install": "sudo apt-get update && sudo apt-get install -y libsqlite3-dev && go mod download && make build-lite && { [ -f .env.lite ] || cp .env.lite.example .env.lite; }",
+  "terminals": [
+    {
+      "name": "weknora-lite",
+      "command": "set -a && . ./.env.lite && set +a && exec ./WeKnora-lite",
+      "description": "WeKnora Lite backend + embedded web UI (SQLite, in-memory queue, zero external deps) on http://localhost:8080"
+    }
+  ],
+  "ports": [
+    {
+      "name": "WeKnora web/API",
+      "port": 8080
+    }
+  ]
+}
